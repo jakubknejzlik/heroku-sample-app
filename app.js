@@ -12,7 +12,7 @@ app.all('/log',function(req,res,next){
 })
 
 app.get('*',function(req,res){
-    res.send('hello world!');
+    res.send('hello world!!');
 })
 
 app.use(function(err,req,res,next){
