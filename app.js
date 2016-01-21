@@ -2,6 +2,10 @@ var express = require('express');
 
 var app = new express();
 
+app.all('/exit',function(req,res,next){
+    process.exit(1);
+})
+
 app.all('/error',function(req,res,next){
     next(new Error('not found'));
 })
@@ -17,7 +21,7 @@ app.get('*',function(req,res){
 
 app.use(function(err,req,res,next){
     res.status(400).send({error:err.message});
-    console.error(err.messge);
+    console.error(err.message);
 })
 
 var port = process.env.PORT || 5000;
